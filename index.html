@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eternal Realms</title>
+    <link rel="stylesheet" href="styles/base.css">
+    <link rel="stylesheet" href="styles/layout.css">
+    <link rel="stylesheet" href="styles/panels.css">
+    <link rel="stylesheet" href="styles/components.css">
+    <link rel="stylesheet" href="styles/themes.css">
+</head>
+<body>
+    <div id="app" class="app-container">
+        <!-- Character Creation Modal -->
+        <div id="character-creation-modal" class="modal hidden">
+            <div class="modal-content">
+                <h1>Create Your Character</h1>
+                <form id="character-creation-form">
+                    <div class="form-group">
+                        <label for="char-name">Name:</label>
+                        <input type="text" id="char-name" placeholder="Enter character name" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="char-age">Age:</label>
+                        <input type="number" id="char-age" min="18" max="80" value="25" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="char-gender">Gender:</label>
+                        <select id="char-gender" required>
+                            <option value="male">Male</option>
+                            <option value="female">Female</option>
+                            <option value="nonbinary">Non-binary</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="char-pronouns">Pronouns:</label>
+                        <select id="char-pronouns" required>
+                            <option value="he/him">He/Him</option>
+                            <option value="she/her">She/Her</option>
+                            <option value="they/them">They/Them</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="char-class">Starting Class:</label>
+                        <select id="char-class" required>
+                            <option value="">Select a class...</option>
+                            <option value="class_warrior">Warrior</option>
+                            <option value="class_berserker">Berserker</option>
+                            <option value="class_knight">Knight</option>
+                            <option value="class_ranger">Ranger</option>
+                            <option value="class_assassin">Assassin</option>
+                            <option value="class_mage">Mage</option>
+                            <option value="class_cleric">Cleric</option>
+                            <option value="class_summoner">Summoner</option>
+                            <option value="class_artificer">Artificer</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="char-origin">Origin:</label>
+                        <textarea id="char-origin" placeholder="Optional: describe your character's background" rows="3"></textarea>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary">Create Character</button>
+                </form>
+            </div>
+        </div>
+
+        <!-- Main Game Interface -->
+        <div id="main-interface" class="main-interface hidden">
+            <!-- Header -->
+            <header class="header">
+                <div class="header-left">
+                    <h1 class="game-title">⚔️ ETERNAL REALMS</h1>
+                </div>
+                <div class="header-center">
+                    <div class="character-summary">
+                        <span id="header-name" class="char-name">Adventurer</span>
+                        <span class="char-level">Lvl <span id="header-level">1</span></span>
+                        <span class="char-class">Warrior</span>
+                    </div>
+                </div>
+                <div class="header-right">
+                    <button id="btn-settings" class="btn btn-icon" title="Settings">⚙️</button>
+                    <button id="btn-save" class="btn btn-icon" title="Save Game">💾</button>
+                </div>
+            </header>
+
+            <!-- Navigation Tabs -->
+            <nav class="navigation">
+                <button class="nav-tab active" data-panel="wilds">
+                    <span class="icon">🌲</span> WILDS
+                </button>
+                <button class="nav-tab" data-panel="status">
+                    <span class="icon">📊</span> STATUS
+                </button>
+                <button class="nav-tab" data-panel="smith">
+                    <span class="icon">🔨</span> SMITH
+                </button>
+                <button class="nav-tab" data-panel="kingdom">
+                    <span class="icon">👑</span> KINGDOM
+                </button>
+                <button class="nav-tab" data-panel="family">
+                    <span class="icon">👨‍👩‍👧‍👦</span> FAMILY
+                </button>
+            </nav>
+
+            <!-- Main Content Area -->
+            <main class="main-content">
+                <!-- WILDS Panel -->
+                <section id="panel-wilds" class="panel active">
+                    <div class="panel-header">
+                        <h2>🌲 THE WILDS</h2>
+                        <p class="panel-subtitle">Explore dangerous regions, hunt monsters, and complete quests.</p>
+                    </div>
+                    <div class="panel-content">
+                        <div class="placeholder-content">
+                            <p>Wilds panel content coming soon...</p>
+                            <p>Here you will explore regions, encounter monsters, and conduct hunts.</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- STATUS Panel -->
+                <section id="panel-status" class="panel hidden">
+                    <div class="panel-header">
+                        <h2>📊 CHARACTER STATUS</h2>
+                        <p class="panel-subtitle">View your attributes, equipment, skills, and progression.</p>
+                    </div>
+                    <div class="panel-content">
+                        <div class="placeholder-content">
+                            <p>Status panel content coming soon...</p>
+                            <p>Here you will manage equipment, view stats, and track your progression.</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- SMITH Panel -->
+                <section id="panel-smith" class="panel hidden">
+                    <div class="panel-header">
+                        <h2>🔨 THE SMITH</h2>
+                        <p class="panel-subtitle">Forge weapons, craft armor, and enhance your equipment.</p>
+                    </div>
+                    <div class="panel-content">
+                        <div class="placeholder-content">
+                            <p>Smith panel content coming soon...</p>
+                            <p>Here you will forge weapons, craft equipment, and manage recipes.</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- KINGDOM Panel -->
+                <section id="panel-kingdom" class="panel hidden">
+                    <div class="panel-header">
+                        <h2>👑 KINGDOM LARION</h2>
+                        <p class="panel-subtitle">Explore the kingdom, meet NPCs, and build relationships.</p>
+                    </div>
+                    <div class="panel-content">
+                        <div class="placeholder-content">
+                            <p>Kingdom panel content coming soon...</p>
+                            <p>Here you will discover locations, meet NPCs, and manage relationships.</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- FAMILY Panel -->
+                <section id="panel-family" class="panel hidden">
+                    <div class="panel-header">
+                        <h2>👨‍👩‍👧‍👦 FAMILY</h2>
+                        <p class="panel-subtitle">Manage relationships, marriage, and your family tree.</p>
+                    </div>
+                    <div class="panel-content">
+                        <div class="placeholder-content">
+                            <p>Family panel content coming soon...</p>
+                            <p>Here you will manage relationships, marriage, and family events.</p>
+                        </div>
+                    </div>
+                </section>
+            </main>
+
+            <!-- Notification Area -->
+            <div id="notification-container" class="notification-container"></div>
+
+            <!-- Activity Log Panel -->
+            <aside class="activity-log">
+                <div class="log-header">
+                    <h3>Activity Log</h3>
+                    <button id="btn-clear-log" class="btn-small">Clear</button>
+                </div>
+                <div id="activity-log-list" class="log-list"></div>
+            </aside>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script type="module" src="src/main.js"></script>
+</body>
+</html>
